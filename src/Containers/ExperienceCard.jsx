@@ -1,9 +1,13 @@
 import React from "react";
+
 import Text from "../Components/Text";
 import Button from "../Components/Button";
 
+import { useDispatch } from "react-redux";
+import { removeExperience } from "../Store/ExperienceData/experienceAction";
 
-function ExperienceCard() {
+function ExperienceCard({ data, i }) {
+  const dispatch = useDispatch();
   return (
     <>
       <div className="bg-white w-full shadow-md rounded-2xl p-6 max-w-md mx-auto mb-6 transition transform hover:scale-105 hover:shadow-lg">
@@ -11,10 +15,12 @@ function ExperienceCard() {
           {/* <!-- Job Title and Company Info --> */}
           <div>
             <Text className="text-lg font-semibold text-gray-900 mb-1">
-              Software Engineer
+              {data.jobTitle}
             </Text>
 
-            <Text className="text-gray-500 text-sm mb-1">Tech Company Inc.</Text>
+            <Text className="text-gray-500 text-sm mb-1">
+              {data.companyName}
+            </Text>
 
             <Text className="text-sm text-gray-400 flex items-center">
               <svg
@@ -31,20 +37,26 @@ function ExperienceCard() {
                   d="M9 12h6M9 16h6M12 8v.01"
                 />
               </svg>
-              Mumbai
+              {data.jobLocation}
             </Text>
-
           </div>
           {/* <!-- Remove Button --> */}
-          <Button className="bg-red-50 text-red-500 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-red-100 transition">
+          <Button
+            onClick={() => dispatch(removeExperience(i))}
+            className="bg-red-50 text-red-500 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-red-100 transition"
+          >
             Remove
           </Button>
         </div>
 
         {/* <!-- Job Duration or Current Job --> */}
         <div className="mt-4">
-          <p className="text-sm text-gray-500">Current Job: Present</p>
-          <p className="text-sm text-gray-500">Professional Experience: 1 Year </p>
+          <p className="text-sm text-gray-500">
+            Current Job: {data.isCurrentJob ? "Present" : "NA"}
+          </p>
+          <p className="text-sm text-gray-500">
+            Professional Experience: {data.yearOfExperience}{" "}
+          </p>
         </div>
       </div>
     </>

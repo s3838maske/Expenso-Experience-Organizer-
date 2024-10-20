@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+
+import { useDispatch } from "react-redux";
+import { addExperience } from "../Store/ExperienceData/experienceAction";
+
 import { cities } from "../Shared/city";
 import { useForm } from "react-hook-form";
+
 import Button from "../Components/Button";
 
 function ExperienceForm(props) {
   const { formOpen, handleForm } = props;
   const { register, handleSubmit, reset } = useForm();
+  const dispatch = useDispatch()
 
-  const onSubmitHandle = (d) => {
-    console.log(d);
+  const onSubmitHandle = (data) => {
+    dispatch(addExperience(data))
     handleForm();
+    reset()
   };
 
   return (
@@ -73,7 +80,7 @@ function ExperienceForm(props) {
               type="text"
               id="companyName"
               {...register("companyName")}
-              placeholder="Enter your Company Name"
+              placeholder="Enter your company name"
               className="border-gray-300 border w-full p-2 rounded-lg mb-2"
               required
             />
@@ -128,6 +135,7 @@ function ExperienceForm(props) {
             >
               Add
             </Button>
+           
           </div>
         </form>
       </div>
