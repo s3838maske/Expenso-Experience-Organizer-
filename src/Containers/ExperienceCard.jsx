@@ -23,20 +23,7 @@ function ExperienceCard({ data, i }) {
             </Text>
 
             <Text className="text-sm text-gray-400 flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 text-gray-400 mr-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 12h6M9 16h6M12 8v.01"
-                />
-              </svg>
+              <ion-icon name="location-outline"></ion-icon>
               {data.jobLocation}
             </Text>
           </div>
@@ -55,7 +42,7 @@ function ExperienceCard({ data, i }) {
             Current Job: {data.isCurrentJob ? "Present" : "NA"}
           </p>
           <p className="text-sm text-gray-500">
-            Professional Experience: {data.yearOfExperience}{" "}
+            Professional Experience: {data.yearOfExperience}{" "}Year
           </p>
         </div>
       </div>
