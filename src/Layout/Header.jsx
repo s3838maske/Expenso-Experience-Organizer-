@@ -13,7 +13,7 @@ function Header({handleForm}) {
     >
       Add Experience
     </button>
-    </nav>
+    </nav> 
    </>
   )
 }

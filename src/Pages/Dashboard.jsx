@@ -46,7 +46,7 @@ function Dashboard() {
 
 
         {/* Experience Details Card  */}
-        <div className="m-5">
+        <div className="m-5 h-96">
           {currentData?.map((data, index) => {
             return <ExperienceCard key={index} i={index} data={data} />;
           })}
@@ -57,7 +57,7 @@ function Dashboard() {
         {/* Next and Prev Btn  */}
         {experienceData.length === 0 ? (
           <>
-            <h1 className="text-3xl text-center font-medium text-gray-500">
+            <h1 className="text-3xl text-center relative -top-52 font-medium text-gray-500">
               No Experience Added
             </h1>
           </>

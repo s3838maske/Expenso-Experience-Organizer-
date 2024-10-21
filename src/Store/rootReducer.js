@@ -4,8 +4,6 @@ import experienceReducer from './ExperienceData/experienceReducer';
 
 const rootReducers = combineReducers({
     exReducer : experienceReducer
-    // product: productReducer,
-    // Add other reducers here
 });
 
 export default rootReducers;

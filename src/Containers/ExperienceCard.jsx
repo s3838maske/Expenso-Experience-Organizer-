@@ -19,11 +19,12 @@ function ExperienceCard({ data, i }) {
             </Text>
 
             <Text className="text-gray-500 text-sm mb-1">
+            <ion-icon name="business-outline"></ion-icon>{" "}
               {data.companyName}
             </Text>
 
             <Text className="text-sm text-gray-400 flex items-center">
-              <ion-icon name="location-outline"></ion-icon>
+              <ion-icon name="location-outline"></ion-icon>{" "}
               {data.jobLocation}
             </Text>
           </div>
