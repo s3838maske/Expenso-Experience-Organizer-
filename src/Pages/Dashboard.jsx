@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 import ExperienceForm from "../Containers/ExperienceForm";
-import Header from "../Layout/Header";
+import Header from "../Components/Header";
 import ExperienceCard from "../Containers/ExperienceCard";
-import Button from "../Components/Button";
+import Button from "../Components/Common/Button";
 
 function Dashboard() {
   const [open, setOpen] = useState(false);
@@ -12,11 +12,11 @@ function Dashboard() {
 
   
   const [currentPage, setCurrentPage] = useState(1);
-  const [card, setCard] = useState(2);
-  const indexOfLastItems = currentPage * card
-  const indexOfFirstItems = indexOfLastItems - card
-  const totalPage = Math.ceil(experienceData.length/card)
-  const currentData = experienceData.slice(indexOfFirstItems,indexOfLastItems)
+  const [card, setCard] = useState(2); //number of card display
+  const indexOfLastItems = currentPage * card // index of last items
+  const indexOfFirstItems = indexOfLastItems - card  // index of first items
+  const totalPage = Math.ceil(experienceData.length/card) // total pages base on the data
+  const cardData = experienceData.slice(indexOfFirstItems,indexOfLastItems)  
 
 
   // Handle for Form open and close
@@ -41,20 +41,21 @@ function Dashboard() {
       <div className="bg-slate-300 h-screen">
 
         <Header handleForm={handleFormOpen} />
+        
         {/* Experience form */}
         <ExperienceForm formOpen={open} handleForm={handleFormOpen} />
 
 
         {/* Experience Details Card  */}
         <div className="m-5 h-96">
-          {currentData?.map((data, index) => {
+          {cardData?.map((data, index) => {
             return <ExperienceCard key={index} i={index} data={data} />;
           })}
         </div>
 
 
 
-        {/* Next and Prev Btn  */}
+        {/*for Pagination Next and Prev Btn  */}
         {experienceData.length === 0 ? (
           <>
             <h1 className="text-3xl text-center relative -top-52 font-medium text-gray-500">
