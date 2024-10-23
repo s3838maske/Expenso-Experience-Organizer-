@@ -1,5 +1,5 @@
 const initialState = {
-  experienceData: [],
+  experience: [],
 };
 
 const experienceReducer = (state = initialState, action) => {
@@ -7,14 +7,14 @@ const experienceReducer = (state = initialState, action) => {
     case "ADD_EXPERIENCE":
       return {
         ...state,
-        experienceData: [...state.experienceData, action.payload],
+        experienceData: [...state.experience, action.payload],
       };
 
     case "REMOVE_EXPERIENCE":
       return {
         ...state,
         experienceData: state.experienceData.filter(
-          (experience, index) => index !== action.payload
+          (_, index) => index !== action.payload
         ),
       };
 

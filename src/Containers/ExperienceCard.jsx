@@ -4,7 +4,7 @@ import Text from "../Components/Common/Text";
 import Button from "../Components/Common/Button";
 
 import { useDispatch } from "react-redux";
-import { removeExperience } from "../Store/ExperienceData/experienceAction";
+import { removeExperience } from "../Store/Experience/experience.Action";
 
 function ExperienceCard({ data, i }) {
   const dispatch = useDispatch();

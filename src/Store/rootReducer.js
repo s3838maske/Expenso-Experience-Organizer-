@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
-import experienceReducer from './ExperienceData/experienceReducer';
-// import productReducer from './productReducer';
+import experienceReducer from './Experience/experience.Reducer';
 
 const rootReducers = combineReducers({
     exReducer : experienceReducer
