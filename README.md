@@ -45,3 +45,17 @@ cd experience-form-app
     npm run dev
 ```
     
+## API Reference
+
+#### Get all state
+
+```http
+  POST https://countriesnow.space/api/v0.1/countries/population/cities
+```
+
+#### Get cities
+
+```http
+  POST https://countriesnow.space/api/v0.1/countries/state/cities```
+
+
