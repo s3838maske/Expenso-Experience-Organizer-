@@ -6,7 +6,7 @@ import storage from 'redux-persist/lib/storage'; // Choose your storage engine
 const persistConfig = {
     key : 'root',
     storage,
-    exReducer : ['experienceReducer']
+    experienceReducer: ['experienceReducer']
 }
 
 const persistedReducer = persistReducer(persistConfig,rootReducers);

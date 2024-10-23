@@ -9,7 +9,7 @@ function Header({handleForm}) {
     <button 
     type='button'
     onClick={handleForm}
-    className='bg-black p-2 hover:bg-[rgb(35,32,32)] hover:shadow-lg text-white rounded-lg'
+    className='bg-blue-600 p-2 hover:bg-blue-700 hover:shadow-lg text-white rounded-lg'
     >
       Add Experience
     </button>

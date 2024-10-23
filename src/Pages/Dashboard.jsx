@@ -1,33 +1,15 @@
-import React, { useState } from "react";
-
-import ExperienceForm from "../Containers/ExperienceForm";
-import Header from "../Components/Header";
-import Pagination from "../Containers/Pagination";
+import React from "react";
+import ExperienceDetails from "../Containers/ExperienceDetails";
 
 function Dashboard() {
-  const [open, setOpen] = useState(false);
-
-
-  // Handle for Form open and close
-  const handleFormOpen = () => {
-    if (open) {
-      setOpen(false);
-    } else {
-      setOpen(true);
-    }
-  };
-
 
   return (
     <>
-      {/* < className="bg-slate-300 h-screen"> */}
-        <Header handleForm={handleFormOpen} />
+      <div className="h-screen bg-slate-200">
 
-        {/* Experience form */}
-        <ExperienceForm formOpen={open} handleForm={handleFormOpen} />
+        <ExperienceDetails />
 
-        <Pagination />
-
+      </div>
     </>
   );
 }

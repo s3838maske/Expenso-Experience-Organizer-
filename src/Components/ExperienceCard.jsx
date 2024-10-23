@@ -3,12 +3,8 @@ import React from "react";
 import Text from "../Components/Common/Text";
 import Button from "../Components/Common/Button";
 
-import { useDispatch } from "react-redux";
-import { removeExperience } from "../Store/Experience/experience.Action";
 
-function ExperienceCard({ data, i }) {
-  const dispatch = useDispatch();
-
+function ExperienceCard({ data, i , handleExperience }) {
 
   return (
     <>
@@ -30,7 +26,7 @@ function ExperienceCard({ data, i }) {
           </div>
           {/* <!-- Remove Button --> */}
           <Button
-            onClick={() => dispatch(removeExperience(i))}
+            onClick={()=>handleExperience(i)}
             className="bg-red-50 text-red-500 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-red-100 transition"
           >
             Remove

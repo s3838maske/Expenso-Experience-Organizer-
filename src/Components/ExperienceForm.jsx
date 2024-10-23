@@ -5,10 +5,10 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addExperience } from "../Store/Experience/experience.Action";
 
-import Button from "../Components/Common/Button";
-import Loading from "../Components/Common/Loading";
-import Wrapper from "../Components/Wrapper";
-import ErrorText from "../Components/Common/ErrorText";
+import Button from "./Common/Button";
+import Loading from "./Common/Loading";
+import Wrapper from "./Wrapper";
+import ErrorText from "./Common/ErrorText";
 
 function ExperienceForm(props) {
   const { formOpen, handleForm } = props;
@@ -35,14 +35,15 @@ function ExperienceForm(props) {
         resolve("Form submitted successfully!");
       }, 500);
     });
+    setCities([])
     handleForm(); // handling from open close fn
     reset(); // Reset form data
   };
 
   // Fetch Cities From Api
   const fetchCities = async () => {
-    setLoading(true)
-    setCities([])
+    setLoading(true);
+    setCities([]);
     try {
       let res = await axios.post(
         "https://countriesnow.space/api/v0.1/countries/state/cities",
@@ -51,19 +52,19 @@ function ExperienceForm(props) {
           state: selectedState,
         }
       );
-      setLoading(false)
+      setLoading(false);
       setCities(res.data.data);
       setApiError("");
     } catch (error) {
       setApiError("Error fetching cities. Please try again.");
-      setLoading(false)
+      setLoading(false);
       console.log(error);
     }
   };
 
   // Fetch State From Api
   const fetchState = async () => {
-    setCities([])
+    setCities([]);
     try {
       let stateData = await axios.post(
         "https://countriesnow.space/api/v0.1/countries/states",
@@ -91,7 +92,7 @@ function ExperienceForm(props) {
 
   return (
     <>
-    {/*form Background Wrapper*/}
+      {/*form Background Wrapper*/}
       <Wrapper formOpen={formOpen} />
 
       {formOpen && (
@@ -129,9 +130,9 @@ function ExperienceForm(props) {
                 {...register("yearOfExperience", {
                   required: "Year of experience is required",
                   pattern: {
-                    value: /^[1-9][0-9]*$/,
+                    value: /^[1-9]\d*(?:\.\d+)?$/,
                     message: "Please enter a valid number greater than 1",
-                  }
+                  },
                 })}
               />
               {errors.yearOfExperience && (
@@ -238,7 +239,7 @@ function ExperienceForm(props) {
                   id="city"
                 >
                   <option value="NA">Select City</option>
-                 {loading&&<option value="NA">Loading..</option>}
+                  {loading && <option value="NA">Loading..</option>}
                   {cities?.map((city, i) => (
                     <option key={i} value={city}>
                       {city}
@@ -259,7 +260,6 @@ function ExperienceForm(props) {
                 {isSubmitting ? <Loading /> : "Add"}
               </Button>
             </div>
-
           </form>
         </div>
       )}
