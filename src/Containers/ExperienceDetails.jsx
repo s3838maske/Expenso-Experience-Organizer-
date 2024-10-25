@@ -41,11 +41,22 @@ function ExperienceDetails() {
   };
 
 
+  // Handle for remove experince card 
   const handleExperience = (index) => {
-    dispatch(removeExperience(index))
+    if (currentPage === 1) {
+      dispatch(removeExperience(index));
+    } else {
+      if (index === 0) {
+        dispatch(removeExperience(card * currentPage - 2));
+      } else {
+        dispatch(removeExperience(card * currentPage - index));
+      }
+    }
+
     if (cardData.length - 1 === 0) {
       handlePrev();
     }
+
   };
 
   return (
